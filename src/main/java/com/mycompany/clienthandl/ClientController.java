@@ -190,45 +190,44 @@ public class ClientController {
     //Delete Client
     @FXML
     private void onDeleteClick() {
-//        // Get the currently displayed contract ID
-//        String contractIdStr = lblcontract.getText();
-//
-//        if (contractIdStr == null || contractIdStr.isEmpty()) {
-//            System.out.println("No contract selected to delete.");
-//            return;
-//        }
-//
-//        int contractId = Integer.parseInt(contractIdStr);
-//
-//        // Confirm deletion with the user
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Delete Contract");
-//        alert.setHeaderText("Are you sure you want to delete this contract?");
-//        alert.setContentText("Contract ID: " + contractId);
-//
-//        if (alert.showAndWait().get() == ButtonType.OK) {
-//            try {
-//                String sql = "DELETE FROM CONTRACTS WHERE CONTRACT_ID = ?";
-//                PreparedStatement ps = conn.prepareStatement(sql);
-//                ps.setInt(1, contractId);
-//                int rowsDeleted = ps.executeUpdate();
-//
-//                if (rowsDeleted > 0) {
-//                    System.out.println("Contract deleted successfully.");
-//
-//                    // Optionally refresh the result set and UI
-//                    loadResultSet();       // reload contracts from DB
-//                    if (rs != null && rs.first()) {
-//                        displayContract();
-//                    }
-//                } else {
-//                    System.out.println("No contract found with ID " + contractId);
-//                }
-//
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        // Get the currently displayed contract ID
+        String contractIdStr = lblcontract.getText();
+
+        if (contractIdStr == null || contractIdStr.isEmpty()) {
+            System.out.println("No contract selected to delete.");
+            return;
+        }
+
+        int contractId = Integer.parseInt(contractIdStr);
+
+        // Confirm deletion with the user
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Contract");
+        alert.setHeaderText("Are you sure you want to delete this contract?");
+        alert.setContentText("Contract ID: " + contractId);
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            try {
+                String sql = "DELETE FROM CONTRACTS WHERE CONTRACT_ID = ?";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, contractId);
+                int rowsDeleted = ps.executeUpdate();
+
+                if (rowsDeleted > 0) {
+                    System.out.println("Contract deleted successfully.");
+
+                    // Optionally refresh the result set and UI
+                    loadResultSet();       // reload contracts from DB
+                    if (rs != null && rs.first()) {
+                        displayContract();
+                    }
+                } else {
+                    System.out.println("No contract found with ID " + contractId);
+                }
+
+            } catch (SQLException e) {
+            }
+        }
     }
 
     // -------------------- Close Everything --------------------
