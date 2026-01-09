@@ -105,7 +105,6 @@ This is a **JavaFX desktop application** to manage client contracts, connected t
 1. Open "New Contract" panel.
 2. Fill the details: Client, Payment Type, Dates, Fees.
 3. Click **Commit** → Contract is inserted, trigger generates installments automatically.
-4. Click **Rollback** to cancel if needed.
 
 ### Viewing Contracts
 - Navigate using First, Previous, Next, Last buttons.
